@@ -21,8 +21,9 @@ to be a great hosting option, as well as an extremely capable development
 environment. As I get better at web development, it seems the Raspberry Pi
 impresses me more and more!
 <br/>
-
-Check out the site:<br/></br>
+<br/>
+Check out the site:<br/>
+<br/>
 https://natenasteff.com
 
 
