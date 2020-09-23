@@ -41,7 +41,7 @@ echo '
         <p class="lead text-light text-center">
           To see a live version
           of the page,
-          click <a href="https://www.natenasteff.com/lab_management/index.php">here</a>.
+          click <a href="https://www.natenasteff.com/lab_management/home.php">here</a>.
           <br>
         </p>
       </div>
