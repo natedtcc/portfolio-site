@@ -1,0 +1,6 @@
+User-agent: * 
+Disallow: /lab_management/
+Disallow: /css-minify/
+Disallow: /includes/
+Disallow: /media/
+Sitemap: https://natenasteff.com/en/sitemap.xml
