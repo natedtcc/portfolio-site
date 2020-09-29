@@ -4,47 +4,39 @@ include('page_data.php');
 
 ?>
 
-<meta
-      property="og:title"
-      content="<?php echo (isset($page_title)) ? $page_title : 'Nate Nasteff'; ?>"
-    />
-    <meta property="og:description" content="Nate Nasteff's Portfolio" />
-    <meta property="og:image" content="https://natenasteff.com/kunky.jpg" />
-    <meta
-      property="og:image:secure_url"
-      content="https://natenasteff.com/media/kunky.png"
-    />
-    <link rel="icon" href="media/favicon.png" />
-    <meta propterty="og:image:type" content="image/png" />
-    <meta property="og:url" content=
-    <?php  
+<meta property="og:title" content="<?php echo (isset($page_title)) ? $page_title : 'Nate Nasteff'; ?>" />
+<meta property="og:description" content="Nate Nasteff's Portfolio" />
+<meta property="og:image" content="https://natenasteff.com/media/background.webp" />
+<meta property="og:image:secure_url" content="https://natenasteff.com/media/background.webp" />
+<link rel="icon" href="media/favicon.png" />
+<meta propterty="og:image:type" content="image/png" />
+<meta property="og:url" content=<?php  
     foreach ($page_links as $key =>
     $value){ if ($key == $current_page){ echo '"https://natenasteff.com/' .
     strtolower($value) . '.php"'; } } ?> />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Nate Nasteff's Portfolio" />
-    <title>
-      <?php echo (isset($page_title)) ? $page_title : 'Nate Nasteff'; ?>
-    </title>
-    <meta charset="utf-8">
-    <meta name="description" content="Nate Nasteff's Portfolio'">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="author" content="N. Nasteff">
-    <link rel="stylesheet" href="includes/bootstrap.css">
-    <link rel="stylesheet" href="includes/custom.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="includes/bootstrap.js"></script>
-    <meta property="og:image" content="https://www.natenasteff.com/kunky.img" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Nate Nasteff's Portfolio" />
+<title>
+  <?php echo (isset($page_title)) ? $page_title : 'Nate Nasteff'; ?>
+</title>
+<meta charset="utf-8">
+<meta name="description" content="Nate Nasteff's Portfolio'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="author" content="N. Nasteff">
+<link rel="stylesheet" href="includes/bootstrap.css">
+<link rel="stylesheet" href="includes/custom.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="includes/bootstrap.js"></script>
 
 </head>
 
 <!--Div for background image-->
 <?php 
     if ($current_page == 0) {
-        echo '<div id="nova-bg" style="height: 100%; overflow: hidden;">';
+        echo '<div id="nova-bg" style="height: 100%; overflow: hidden; opacity: .999;">';
         }
     else {
         echo '<div id="nova-bg">';
@@ -54,22 +46,22 @@ include('page_data.php');
 <!--Begin Header / Navbar-->
 <header>
 
-    <nav class=" navbar navbar-dark" style="width: 100%; background-color: black; height: 64px; position: fixed;">
+  <nav class=" navbar navbar-dark" style="width: 100%; background-color: black; height: 64px; position: fixed;">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-            style="background-color: black;">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="https://www.natenasteff.com/"><img class="blink-image" src="media/icon-200px.png"
-                height="45" width="45" style="right: 100%;">
-        </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+      style="background-color: black;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://www.natenasteff.com/"><img class="blink-image" src="media/icon-200px.png"
+        height="45" width="45" style="right: 100%;">
+    </a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <ul class="list-inline">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <ul class="list-inline">
 
-                    <?php 
+          <?php 
 
 
                         foreach ($page_links as $key => $value){
@@ -82,40 +74,38 @@ include('page_data.php');
                           }
 
                           ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            &nbsp;&nbsp;&nbsp;Contact
-                        </a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              &nbsp;&nbsp;&nbsp;Contact
+            </a>
 
-                        <div class="icons">
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width: 50px;
+            <div class="icons">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width: 50px;
                 background-color: rgba(0, 0, 0, .9); border-radius: 0px 0px 0px 0px;">
-                                <a
-                                href="https://www.linkedin.com/in/nate-nasteff-7781091b3/"
-                              >
-                                <i class="fa fa-linkedin" aria-hidden="true"> </i>
-                              </a>
-                              <a href="https://github.com/natedtcc/">
-                                <i class="fa fa-github"> </i>
-                              </a>
-                              <a href="https://www.instagram.com/natenastybeats/">
-                                <i class="fa fa-instagram"> </i>
-                              </a>
-                              <a href=" mailto:nnasteff@protonmail.com">
-                                <i class="fa fa-envelope-o"> </i>
-                              </a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </ul>
-        </div>
-    </nav>
+                <a href="https://www.linkedin.com/in/nate-nasteff-7781091b3/">
+                  <i class="fa fa-linkedin" aria-hidden="true"> </i>
+                </a>
+                <a href="https://github.com/natedtcc/">
+                  <i class="fa fa-github"> </i>
+                </a>
+                <a href="https://www.instagram.com/natenastybeats/">
+                  <i class="fa fa-instagram"> </i>
+                </a>
+                <a href=" mailto:nnasteff@protonmail.com">
+                  <i class="fa fa-envelope-o"> </i>
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </nav>
 </header>
 <div class="foot">
 
-    <p><small>Copyright 2019 Nathan Nasteff</small></p>
+  <p><small>Copyright 2019 Nathan Nasteff</small></p>
 </div>
 
 <?php 
