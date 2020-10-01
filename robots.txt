@@ -3,4 +3,5 @@ Disallow: /lab_management/
 Disallow: /css-minify/
 Disallow: /includes/
 Disallow: /media/
+Disallow: /jazz_lounge/
 Sitemap: https://natenasteff.com/en/sitemap.xml
