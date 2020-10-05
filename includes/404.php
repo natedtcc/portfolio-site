@@ -1,19 +1,18 @@
 <?php
 
-$page_title = 'About | natenasteff.com |';
+$page_title = 'Not found | natenasteff.com |';
+$current_page = 4;
 
 include('header.html');
 
-echo '<!DOCTYPE html>
-<html>
+echo '
       <center>
         <br /><br /><br /><br />
         <h1
           class="jumbotron"
-          style="color: white; background-color: transparent"
+          style="color: white; background-color: transparent; font-size:72;"
         >
-          Ooops, sorry!
+          🤔
         </h1>
         <h3 class="display-5" style="color: white">This page doesnt exist.</h3>
-      </center>'; 
-?>
+      </center>';

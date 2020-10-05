@@ -41,7 +41,7 @@ echo '
         <p class="lead text-light text-center" style="text-indent: 0px;">
           To see a live version
           of the page,
-          click <a href="https://www.natenasteff.com/lab_management/home.php">here</a>.
+          click <a href="https://natenasteff.com/lab_management/home.php">here</a>.
           <br>
         </p>
       </div>
@@ -125,5 +125,3 @@ echo '
   </body> ';
 
   include('includes/footer.html');
-
-  ?>

@@ -1,8 +1,8 @@
 <?php # page_data.php - N. Nasteff
 
-// These arrays hold page data so that the dropdown nav link list can be updated programmatically.
+// This array holds page data so that the dropdown nav link list can be updated programmatically.
 
-$page_links = array("Home", "About", "Projects");
-$page_count = 3;
-
-?>
+$page_links = [
+  "Home", "About", "Projects", "404", "403"
+];
+$page_count = count($page_links);

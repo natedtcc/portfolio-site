@@ -76,7 +76,7 @@ echo '
         time writing and playing music. I\'ve been playing music for roughly 
         two decades, so I\'m always looking for ways to leverage my knowledge 
         of computing to create some interesting music (or devices - see my 
-          <a href="https://www.natenasteff.com/projects.html">projects</a> 
+          <a href="https://natenasteff.com/projects.html">projects</a> 
         page). Some of my other hobbies include cooking, playing golf, casual 
         gaming, and bombing hills on my longboard, to name a few.
       </p> 

@@ -4,38 +4,41 @@ include('page_data.php');
 
 ?>
 
-<meta property="og:title" content="<?php echo (isset($page_title)) ? $page_title : 'Nate Nasteff'; ?>" />
-<meta property="og:description" content="Nate Nasteff's Portfolio" />
-<meta property="og:image" content="https://natenasteff.com/media/background.webp" />
-<meta property="og:image:secure_url" content="https://natenasteff.com/media/background.webp" />
-<link rel="icon" href="media/favicon.png" />
-<meta propterty="og:image:type" content="image/png" />
-<meta property="og:url" content=<?php  
-    foreach ($page_links as $key =>
-    $value){ if ($key == $current_page){ echo '"https://natenasteff.com/' .
-    strtolower($value) . '.php"'; } } ?> />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Nate Nasteff's Portfolio" />
-<title>
-  <?php echo (isset($page_title)) ? $page_title : 'Nate Nasteff'; ?>
-</title>
-<meta charset="utf-8">
-<meta name="description" content="Nate Nasteff's Portfolio'">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="author" content="N. Nasteff">
-<link rel="stylesheet" href="includes/bootstrap.css">
-<link rel="stylesheet" href="includes/custom.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="includes/bootstrap.js"></script>
+<head>
 
+
+  <meta property="og:title" content="<?php echo (isset($page_title)) ? $page_title : 'Nate Nasteff'; ?>" />
+  <meta property="og:description" content="Nate Nasteff's Portfolio" />
+  <meta property="og:image" content="https://natenasteff.com/media/background.webp" />
+  <meta property="og:image:secure_url" content="https://natenasteff.com/media/background.webp" />
+  <link rel="icon" href="media/favicon.png" />
+  <meta propterty="og:image:type" content="image/png" />
+  <meta property="og:url" content=<?php  
+    foreach ($page_links as $key =>$value){ 
+      if ($key == $current_page){ 
+        echo '"https://natenasteff.com/' . strtolower($value) . '.php"'; } } 
+  ?> />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nate Nasteff's Portfolio" />
+  <title>
+    <?php echo (isset($page_title)) ? $page_title : 'Nate Nasteff'; ?>
+  </title>
+  <meta charset="utf-8">
+  <meta name="description" content="Nate Nasteff's Portfolio'">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="author" content="N. Nasteff">
+  <link rel="stylesheet" href="https://natenasteff.com/includes/bootstrap.css">
+  <link rel="stylesheet" href="https://natenasteff.com/includes/custom.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://natenasteff.com/includes/bootstrap.js"></script>
 </head>
 
 <!--Div for background image-->
 <?php 
-    if ($current_page == 0) {
+    if ($current_page == 0 || $current_page == 4 || $current_page == 5) {
         echo '<div id="nova-bg" style="height: 100%; overflow: hidden; opacity: .999;">';
         }
     else {
@@ -53,7 +56,7 @@ include('page_data.php');
       style="background-color: black;">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="https://www.natenasteff.com/"><img class="blink-image" src="media/icon-200px.png"
+    <a class="navbar-brand" href="https://natenasteff.com/"><img class="blink-image" src="media/icon-200px.png"
         height="45" width="45" style="right: 100%;">
     </a>
 
@@ -65,6 +68,7 @@ include('page_data.php');
 
 
                         foreach ($page_links as $key => $value){
+                          if ($key + 1 != 4 && $key + 1 != 5){
                             if ($key == $current_page){
                             echo '<li class="nav-item"><a class="nav-link active" href="https://natenasteff.com/' . strtolower($value) . '.php">&nbsp;&nbsp;&nbsp;' . $value . '<span class="sr-only">(current)</span></a></li>';
                             }
@@ -72,6 +76,7 @@ include('page_data.php');
                               echo '<li class="nav-item"><a class="nav-link" href="https://natenasteff.com/' . strtolower($value) . '.php">&nbsp;&nbsp;&nbsp;' . $value . '</a></li>';
                             }
                           }
+                        }
 
                           ?>
           <li class="nav-item dropdown">
