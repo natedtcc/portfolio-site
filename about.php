@@ -45,12 +45,12 @@ echo '
       <ul class="list-inline">
         <li>Java</li>
         <li>Python</li>
+        <li>PHP</li>
         <li>C / C++</li>
         <li>OOP / Data Structures</li>
         <li>Android App Development</li>
         <li>HTML5</li>
         <li>CSS3 / Sass</li>
-        <li>PHP</li>
         <li>React.js</li>
         <li>Bootstrap</li>
         <li>VC (Git)</li>

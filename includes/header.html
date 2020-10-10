@@ -12,7 +12,7 @@ include('page_data.php');
   <meta property="og:image" content="https://natenasteff.com/media/background.webp" />
   <meta property="og:image:secure_url" content="https://natenasteff.com/media/background.webp" />
   <link rel="icon" href="media/favicon.png" />
-  <meta propterty="og:image:type" content="image/png" />
+  <meta propterty="og:image:type" content="https://natenasteff.com/image/png" />
   <meta property="og:url" content=<?php  
     foreach ($page_links as $key =>$value){ 
       if ($key == $current_page){ 
@@ -38,13 +38,13 @@ include('page_data.php');
 
 <!--Div for background image-->
 <?php 
-    if ($current_page == 0 || $current_page == 4 || $current_page == 5) {
-        echo '<div id="nova-bg" style="height: 100%; overflow: hidden; opacity: .999;">';
-        }
-    else {
-        echo '<div id="nova-bg">';
-        }
-        ?>
+  if ($current_page == 0 || $current_page == 4 || $current_page == 5) {
+    echo '<div id="nova-bg" style="height: 100%; overflow: hidden; opacity: .999;">';
+  }
+  else {
+    echo '<div id="nova-bg">';
+  }
+?>
 
 <!--Begin Header / Navbar-->
 <header>
@@ -56,7 +56,7 @@ include('page_data.php');
       style="background-color: black;">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="https://natenasteff.com/"><img class="blink-image" src="media/icon-200px.png"
+    <a class="navbar-brand" href="https://natenasteff.com/"><img class="blink-image" src="https://natenasteff.com/media/icon-200px.png"
         height="45" width="45" style="right: 100%;">
     </a>
 
@@ -64,21 +64,28 @@ include('page_data.php');
       <ul class="navbar-nav mr-auto">
         <ul class="list-inline">
 
-          <?php 
+<?php 
 
 
-                        foreach ($page_links as $key => $value){
-                          if ($key + 1 != 4 && $key + 1 != 5){
-                            if ($key == $current_page){
-                            echo '<li class="nav-item"><a class="nav-link active" href="https://natenasteff.com/' . strtolower($value) . '.php">&nbsp;&nbsp;&nbsp;' . $value . '<span class="sr-only">(current)</span></a></li>';
-                            }
-                            else {
-                              echo '<li class="nav-item"><a class="nav-link" href="https://natenasteff.com/' . strtolower($value) . '.php">&nbsp;&nbsp;&nbsp;' . $value . '</a></li>';
-                            }
-                          }
-                        }
+foreach ($page_links as $key => $value){
+  if ($key + 1 != 4 && $key + 1 != 5){
+    if ($key == $current_page){
+    echo '
+    <li class="nav-item"><a class="nav-link active" 
+      href="https://natenasteff.com/' . strtolower($value) . '.php">
+      &nbsp;&nbsp;&nbsp;' . $value . '<span class="sr-only">(current)
+      </span></a></li>
+    ';
+    }
+    else {
+      echo '<li class="nav-item">
+        <a class="nav-link" href="https://natenasteff.com/' . strtolower($value) . '.php">
+          &nbsp;&nbsp;&nbsp;' . $value . '</a></li>';
+    }
+  }
+}
 
-                          ?>
+  ?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
