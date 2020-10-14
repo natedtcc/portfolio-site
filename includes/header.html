@@ -38,7 +38,7 @@ include('page_data.php');
 
 <!--Div for background image-->
 <?php 
-  if ($current_page == 0 || $current_page == 4 || $current_page == 5) {
+  if ($current_page == 0 || $current_page == 5 || $current_page == 6) {
     echo '<div id="nova-bg" style="height: 100%; overflow: hidden; opacity: .999;">';
   }
   else {
@@ -68,7 +68,7 @@ include('page_data.php');
 
 
 foreach ($page_links as $key => $value){
-  if ($key + 1 != 4 && $key + 1 != 5){
+  if ($key + 1 != 5 && $key + 1 != 6){
     if ($key == $current_page){
     echo '
     <li class="nav-item"><a class="nav-link active" 
@@ -117,7 +117,7 @@ foreach ($page_links as $key => $value){
 </header>
 <div class="foot">
 
-  <p><small>Copyright 2019 Nathan Nasteff</small></p>
+  <p><small>Copyright 2020 Nathan Nasteff</small></p>
 </div>
 
 <?php 

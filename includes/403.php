@@ -1,7 +1,7 @@
 <?php
 
 $page_title = 'Forbidden | natenasteff.com |';
-$current_page = 5;
+$current_page = 6;
 
 include('header.html');
 
