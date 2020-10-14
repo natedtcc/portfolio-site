@@ -37,7 +37,8 @@ echo '<div class="text-center">
       <p class="lead"><br>
       - A Raspberry Pi (tested on models 3 and 4)<br>
       - A Google Domain purchased through Google<br>
-      - Apache2 server (for logging only)<br><br><br>
+      - Apache2 / NGNIX or other server software (tested with Apache2)<br>
+      - Sudo privileges (for chmod, creating log files in /etc/apache2/)
       </p><br>
 
       <h5 class="lead">Setting up Dynamic DNS on Google Domains</h5>
@@ -93,25 +94,40 @@ echo '<div class="text-center">
     export IP=$POTENTIAL_IP
   URL="https://${USERNAME}:${PASSWORD}@domains.google.com/nic/update?hostname=${HOSTNAME}&myip=${IP}"
     curl -s $URL
+    # Output to logger - REMOVE BOTH ECHO LINES BELOW (AND THE ELSE) NOT USING LOGGING!
     echo "[${DATE_WITH_TIME}] Google Domain IP Address updated successfully." >> /var/log/apache2/dns_update.log
   else
     echo "[${DATE_WITH_TIME}] No update neccessary." >> /var/log/apache2/dns_update.log
   fi
-  
-  else
-        echo "[${DATE_WITH_TIME}] No update neccessary." >> /var/log/apache$
-      
-      fi
       </code>
       </pre>
       <p class="lead"><br>Once the above code is copied and pasted, make sure you assign your
       username, password and hostname variables at the top of the script. Once this is done and you have closed nano, make sure
-      to give your script the executable flag by typing "<code style="color:white;">sudo chmod +x dns_update</code>".
+      to give your script the executable flag by by using the chmod command, like so: "<code style="color:white;">sudo chmod +x dns_update</code>".
  Note the "+x" in the command. <br><br>This ensures our script can be run straight from the CLI. You can now test this
- by running the command "<code style="color:white;">(path_to_script)/dns_update</code>" in your terminal. On first run (and on reboots) it will force
+ by using "<code style="color:white;">(path_to_script)/dns_update</code>" in your terminal. On first run (and on reboots) it will force
  an update of your current IP address to the Google API. Congratulations, you now have a nice script that can automatically
- update your IP address! But, we\'re not quite finished! To make this script even better, you should have crontab run it every so
- often to ensure your Dynamic DNS is updated. </p>
+ update your IP address! NOTE: You may see an error if you decided to include the logging function - more on that next. We\'re not quite finished! To make this script even better, you should have crontab run it every so
+ often to ensure your Dynamic DNS is updated. But before that, let\'s make a log file in /etc/apache2/ so we can keep
+ track of when the IP is changed (or not)</p><br>
+ <h5 class="lead">Creating a logfile</h5><br>
+ <p class="lead"><br>
+ I decided that logging any IP changes would be a good idea, just in case I need to reference any downtimes, or calculate
+ how long an IP will stay the same. You can easily skip this step, but you will need to remove the logging part of the script
+ (see comments in the script).<br><br>
+ To create a logfile in your /etc/apache2/ dir, you\'ll need sudo privileges, as /etc/ is a protected folder. To make the logfile
+ accessable to cron, you must also modify the owner of the logfile once it\'s been created. The following code
+ will do just that:</p>
+ <pre>
+      <code>
+
+      sudo touch /var/log/apache2/dns_update.log
+      sudo chown username:username /var/log/apache2/dns_update.log
+
+      </code>
+      </pre>
+      <p class="lead"><br>Once you\'re done creating and changing ownership of your logfile, we can move on to the final step:
+      adding the script to cron so that it runs whenever we specify.</p><br>
  <h5 class="lead">Adding the script to crontab</h5><br>
  <p class="lead"><br>
  Crontab is a powerful Linux scheduling utility that will run scripts in the background every so often, depending
