@@ -14,7 +14,7 @@ echo '<div class="text-center">
 
 </div>
       
-      <div class="container">  
+      <div class="container"><br>
       <p class="lead">
       In this tutorial, I will show you how to create a script in bash that will update your
       Google Domains IP in case your IP is changed by your ISP. Why would I need this, you
@@ -62,48 +62,91 @@ echo '<div class="text-center">
       export IP=0.0.0.0
 
       </code>
-      </pre><br><br>
-      <p class="lead">
+      </pre><br>
+      <p class="lead"><br>
       Once you have modified and saved your .bashrc file, don\'t forget to run the command "<code style="color:white;">source .bashrc</code>"
        to update your changes. With this variable set, we can move on to the script. </p>
        
        <h5 class="lead">The Script</h5><br>
-       <p class="lead">Create a new file called dns_update (or whatever)
+       <p class="lead"><br>Create a new file in your home directory (or wherever you may store your user scripts) called dns_update (or whatever you choose)
        and open it up in nano. Then, copy and paste the below code into the file:</p><br><br>
       
 
       <pre>
       <code>
-      #!/bin/bash
+  #!/bin/bash
 
-      # Set account info variables
-      USERNAME="google-domain-username"
-      PASSWORD="google-domain-password"
-      HOSTNAME="your-hostname.com"
-      
-      # Get Date & Time for logging / Current IP
-      DATE_WITH_TIME=$(date "+%Y-%m-%d %H:%M:%S")
-      POTENTIAL_IP=$( dig +short myip.opendns.com @resolver1.opendns.com )
-      
-      # Check environmental var $IP against the $POTENTIAL_IP
-      if [[ "$IP" != "$POTENTIAL_IP" ]]
-      then
-        # Use the API to update your DNS with the newest IP
-        # Also logs to a logfile created in /var/log/apache2/
-        export IP=$POTENTIAL_IP
-        URL="https://${USERNAME}:${PASSWORD}@domains.google.com/nic/update?$
-        curl -s $URL
-        echo "[${DATE_WITH_TIME}] Google Domain IP Address updated successf$
-      
-      else
+  # Set account info variables
+  USERNAME="google-domain-username"
+  PASSWORD="google-domain-password"
+  HOSTNAME="your-hostname.com"
+  
+  # Get Date & Time for logging / Current IP
+  DATE_WITH_TIME=$(date "+%Y-%m-%d %H:%M:%S")
+  POTENTIAL_IP=$( dig +short myip.opendns.com @resolver1.opendns.com )
+  
+  # Check environmental var $IP against the $POTENTIAL_IP
+  if [[ "$IP" != "$POTENTIAL_IP" ]]
+  then
+    # Use the API to update your DNS with the newest IP
+    # Also logs to a logfile created in /var/log/apache2/
+    export IP=$POTENTIAL_IP
+  URL="https://${USERNAME}:${PASSWORD}@domains.google.com/nic/update?hostname=${HOSTNAME}&myip=${IP}"
+    curl -s $URL
+    echo "[${DATE_WITH_TIME}] Google Domain IP Address updated successfully." >> /var/log/apache2/dns_update.log
+  else
+    echo "[${DATE_WITH_TIME}] No update neccessary." >> /var/log/apache2/dns_update.log
+  fi
+  
+  else
         echo "[${DATE_WITH_TIME}] No update neccessary." >> /var/log/apache$
       
       fi
       </code>
       </pre>
-      <p class="lead"><br>Once the file is saved and you have closed nano, make sure
+      <p class="lead"><br>Once the above code is copied and pasted, make sure you assign your
+      username, password and hostname variables at the top of the script. Once this is done and you have closed nano, make sure
       to give your script the executable flag by typing "<code style="color:white;">sudo chmod +x dns_update</code>".
- Note the "+x" in the command. This ensures our script can be run as a command from the CLI. You can now test this
- by typing "<code style="color:white;">(path_to_script)/dns_update</code>". On first run (and on reboots) it will force
- an update of your current IP address to the Google API </div>
+ Note the "+x" in the command. <br><br>This ensures our script can be run straight from the CLI. You can now test this
+ by running the command "<code style="color:white;">(path_to_script)/dns_update</code>" in your terminal. On first run (and on reboots) it will force
+ an update of your current IP address to the Google API. Congratulations, you now have a nice script that can automatically
+ update your IP address! But, we\'re not quite finished! To make this script even better, you should have crontab run it every so
+ often to ensure your Dynamic DNS is updated. </p>
+ <h5 class="lead">Adding the script to crontab</h5><br>
+ <p class="lead"><br>
+ Crontab is a powerful Linux scheduling utility that will run scripts in the background every so often, depending
+ on the time interval specified. You can use crontab the script you just created to have the script check for IP
+ address changes, say, every 15 minutes. To accomplish this, enter the command "<code style="color:white;">crontab -e</code>",
+ which will open your crontab settings file in your default text editor. To have the script run every 15 minutes,
+ your crontab file should look a little something like this:</p>
+ <br><br>
+ <pre>
+ <code>
+ # Notice that tasks will be started based on the cron\'s system
+ # daemon\'s notion of time and timezones.
+ # 
+ # Output of the crontab jobs (including errors) is sent through
+ # email to the user the crontab file belongs to (unless redirected).
+ # 
+ # For example, you can run a backup of all your user accounts
+ # at 5 a.m every week with:
+ # 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+ # 
+ # For more information see the manual pages of crontab(5) and cron(8)
+ # 
+ # m h  dom mon dow   command
+ 
+ # Update Google Domain to reflect current IP address (for web server)
+ # Runs every 20 minutes
+ 
+ */20 * * * * ~/dns_update
+
+ </code>
+ </pre>
+ <br><p class="lead"><br>
+ Save and quit, and you\'re finished! Cron will automatically update with your new configuration, so you dont have to restart any
+ services or reboot. Congratulations! Now, any time your IP address changes, your domain will be automatically updated to reflect those
+ changes, with a maximum of 15 minutes of downtime at any point in time. I hope this tutorial was helpful! If you have questions or comments,
+ dont hesitate to contact me.</p><br><br>
+ </div>
 ';
