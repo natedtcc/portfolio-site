@@ -3,7 +3,7 @@
 $page_title = 'Tutorials | natenasteff.com |';
 $current_page = 4;
 
-include(dirname(__FILE__).'/../includes/header.html');
+include(dirname(__FILE__) . '/../includes/header.html');
 
 echo '<div class="text-center">
 <div class="text-fade">
@@ -48,7 +48,7 @@ echo '<div class="text-center">
   - A Raspberry Pi (tested on models 3 and 4)<br>
   - A Google Domain purchased through Google<br>
   - Apache2 / NGNIX or other server software (tested with Apache2)<br>
-  - Sudo privileges (for chmod, creating log files in /etc/apache2/)
+  - Sudo privileges (for chmod, creating log files in /var/log/apache2/)
   </p><br>
 
 <h5 class="lead">Setting up Dynamic DNS on Google Domains</h5>
