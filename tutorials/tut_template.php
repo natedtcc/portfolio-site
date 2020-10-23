@@ -18,11 +18,6 @@ echo '<div class="text-center">
 <div class="container"><br>
 <p class="lead"><br>
 
-
-
-
-
-
 </div>
 
 
