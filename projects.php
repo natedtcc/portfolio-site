@@ -47,6 +47,46 @@ echo '
       </div>
 
       <div class="container">
+      <h5 class="lead">PSO Bot for Twitch</h5>
+      <img src="media/pso-bot.png" width="300" height="300">
+      <p class="lead">Phantasy Star Online is an MMORPG (one of the first of it\'s kind)
+      which originally debuted on the Sega Dreamcast way back in the year 2000. While the online
+      service was short lived, the community surrounding the game has managed to keep the game alive
+      and running since Sega shut down the main servers in 2003(ish?). Sega\'s server code was reverse
+      engineered and reconstructed, with the PSO hacking community releasing server software for Linux
+      and Windows.
+        <br><br> </p>
+        <p class="lead">
+        Flash forward to the year 2020, and people are still online enjoying PSO. In the past, I\'d 
+        given some thought to potentially creating a Twitch channel devoted to Phantasy Star Online.
+        My main plan was to just have a character sitting idle in the in-game lobby 24/7, just so viewers
+        could enjoy the scenary and background music that helped define the franchise. After setting
+        an instance of this up, I was pretty shocked to see how many people actually watched it.
+        <br><br></p>
+        <p class="lead">I decided that just simpling idling in game was not enough, so I decided to start
+        writing a bot that would pass commands to the game. To do this, I needed to do a bit of game hacking,
+        which involved me finding specific addresses in the game\'s memory that would modify certain in-game
+        features in real time.
+        <br><br></p>
+        
+        <p class="lead">
+        The project utilizes Java to do all the heavy lifting. Currently, the in-game character automatically
+        sends chats every minute or so, and will warp to a different area of the game after about five minutes.
+        I utilized that Java Robots lib to send custom chat messages that are read from a textfile, and the
+        memory editing functions are accomplished by using a simplified version of the Java JNA library, called WGTools. This project
+        will probably always be in progress, but in the future I plan on implementing functions that will control
+        the character (movement, attacking, healing etc) and some functionality to interact with users in the Twitch
+        chat.
+        <br><br> </p>
+      <p class="lead text-light text-center" style="text-indent: 0px;">
+        To see the code,
+        click <a href="https://github.com/natedtcc/pso-bot/">here</a>. <br>
+        The Twitch channel can be found <a href="https://twitch.tv/retrogradex">here</a>.
+        <br>
+      </p>
+    </div>
+
+      <div class="container">
         <h5 class=" lead">Arduino MIDI ChordStomper</h5>
         <img src="media/chordstomp.jpg" width="350" height="250">
         <br>
@@ -124,4 +164,4 @@ echo '
 
   </body> ';
 
-  include('includes/footer.html');
+include('includes/footer.html');
