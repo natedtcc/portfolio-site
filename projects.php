@@ -72,9 +72,9 @@ echo '
         <p class="lead">
         The project utilizes Java to do all the heavy lifting. Currently, the in-game character automatically
         sends chats every minute or so, and will warp to a different area of the game after about five minutes.
-        I utilized that Java Robots lib to send custom chat messages that are read from a textfile, and the
+        I utilized that Java Robots library to send custom chat messages that are read from a textfile, and the
         memory editing functions are accomplished by using a simplified version of the Java JNA library, called WGTools. This project
-        will probably always be in progress, but in the future I plan on implementing functions that will control
+        will probably always be a work in progress. In the future, I plan on implementing functions that will control
         the character (movement, attacking, healing etc) and some functionality to interact with users in the Twitch
         chat.
         <br><br> </p>
